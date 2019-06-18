@@ -1,0 +1,33 @@
+.Header {
+    /* background: red; */
+    padding: 30px 10px;
+    position: relative;
+}
+
+.Header::after{
+    content: '';
+    display: block;
+    height: 15px;
+    opacity: 0.9;
+    background: #c9e1e4;
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+    right: -20px;
+}
+
+.Header--title {
+    font-size: 36px;
+    line-height: 44px;
+}
+
+.Header--subtitle {
+    font-size: 24px;
+    line-height: 36px;
+    color: #666;
+}
+
+.Header--separator {
+    width: 80px;
+    border:1px solid #e1e1e1
+}
