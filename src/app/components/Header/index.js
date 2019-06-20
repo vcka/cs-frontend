@@ -1,9 +1,9 @@
 import React from "react";
-import { useFetch } from "./hooks";
+import { useFetch } from "../../utils/hooks";
 import { API_ENDPOINTS } from "../../utils/constants";
 import "./index.css";
 
-function Header(props) {
+function Header() {
   const { loading, data } = useFetch(API_ENDPOINTS.personInfo);
 
   return (
@@ -12,9 +12,11 @@ function Header(props) {
         <div>Loading...</div>
       ) : (
         <div>
-          <h1 className="Header--title">{data.name}</h1>
+          <h1 className="Header--title">
+            {data.name} {data.surname}
+          </h1>
           <hr className="Header--separator" />
-          <h2 className="Header--subtitle">{data.surname}</h2>
+          <h2 className="Header--subtitle">{data.aboutMe}</h2>
         </div>
       )}
     </header>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { API_DOMAIN } from "../../utils/constants";
+import { API_DOMAIN } from "./constants";
 
 const useFetch = url => {
   const [data, setData] = useState(null);
