@@ -76,7 +76,8 @@ const skills = [
 function App() {
   return (
     <div className="App">
-      <Header>Smauglys Pagirstukas</Header>
+      {/* <Header link="https://jsonplaceholder.typicode.com/users/1" /> */}
+      <Header />
       <main className="App--content">
         <div className="App--content-left">
           <Contacts items={contacts} />
