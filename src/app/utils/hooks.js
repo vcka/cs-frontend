@@ -25,7 +25,7 @@ const useFetch = url => {
     fetchData();
   }, []);
 
-  return { loading, data };
+  return { loading, data, setData };
 };
 
 export { useFetch };
