@@ -1,3 +1,29 @@
+.Contacts {
+  padding: 0 10px;
+  text-align: justify;
+}
+
+.Contacts h3 {
+  font-size: 30px;
+  /* line-height: 36px; */
+}
+
 .Contacts--item {
   display: block;
+  color: #000000;
+}
+
+.Contacts--separator {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+}
+
+.Contacts--item-text {
+  padding-left: 10px;
+  /* margin-bottom: 100px; */
+}
+
+.Contacts--item-icon {
+  /* padding: 10px; */
+  margin-top: 20px;
 }

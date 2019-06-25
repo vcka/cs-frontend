@@ -1,0 +1,19 @@
+.Education {
+  padding: 45px 10px;
+  text-align: left;
+}
+
+.Education h3 {
+  font-size: 30px;
+  /* line-height: 36px; */
+}
+
+.Contacts--item {
+  display: block;
+  color: #000000;
+}
+
+.Education--separator {
+  width: 100%;
+  border: 1px solid #e1e1e1;
+}

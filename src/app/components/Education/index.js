@@ -15,6 +15,7 @@ function Education(props) {
   return (
     <section className="Education">
       <h3>Education</h3>
+      <hr className="Education--separator" />
       {props.items.map(Item)}
     </section>
   );

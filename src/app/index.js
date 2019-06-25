@@ -2,41 +2,34 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Contacts from "./components/Contacts";
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarker,
-  FaLinkedinIn,
-  FaGithubAlt
-} from "react-icons/fa";
 import Education from "./components/Education";
 import Skills from "./components/Skills";
 
 const contacts = [
   {
-    icon: FaMapMarker,
-    text: "Vilnius, Lithuania",
+    contactsType: "LOCATION",
+    value: "Vilnius, Lithuania",
     link:
       "https://www.google.com/maps/place/Vilnius/@54.6998479,24.9727564,10z/"
   },
   {
-    icon: FaGithubAlt,
-    text: "@vcka",
+    contactsType: "GIT",
+    value: "@vcka",
     link: "https://github.com/vcka/"
   },
   {
-    icon: FaEnvelope,
-    text: "vcka@ministras.lt",
+    contactsType: "EMAIL",
+    value: "vcka@ministras.lt",
     link: "mailto:vcka@ministras.lt?subject=eMail from CV"
   },
   {
-    icon: FaPhone,
-    text: "+37068744...",
+    contactsType: "PHONE",
+    value: "+37068744...",
     link: "tel:+370687440"
   },
   {
-    icon: FaLinkedinIn,
-    text: "LinkedIn.com/Vytautas Zadoroznas",
+    contactsType: "LINKEDIN",
+    value: "LinkedIn.com/Vytautas Zadoroznas",
     link: "https://lt.linkedin.com/in/vytautas-zadoro%C5%BEnas-0627b211"
   }
 ];

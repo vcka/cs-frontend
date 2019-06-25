@@ -17,7 +17,7 @@ function Item(data) {
   const Icon = icons[data.contactsType];
   return (
     <a className="Contacts--item" href={data.link}>
-      <Icon className="Contacts--item-icon" />
+      <Icon size={32} className="Contacts--item-icon" />
       <span className="Contacts--item-text">{data.value}</span>
     </a>
   );
@@ -25,17 +25,14 @@ function Item(data) {
 
 function Contacts() {
   const { loading, data } = useFetch(API_ENDPOINTS.personContacts);
-  if (loading) {
-    return <div>Loading...</div>;
-  } else {
-    return (
-      <section className="Contacts">
-        <h3>Contacts</h3>
-        {console.log(data)}
-        {data.map(Item)}
-      </section>
-    );
-  }
+
+  return (
+    <section className="Contacts">
+      <h3>CONTACTS</h3>
+      <hr className="Contacts--separator" />
+      {loading ? <div>Loading...</div> : <div>{data.map(Item)}</div>}
+    </section>
+  );
 }
 
 export default Contacts;
