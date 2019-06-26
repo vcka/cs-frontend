@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useFetch } from "../../utils/hooks";
 import { post } from "../../utils/post";
 import { API_ENDPOINTS } from "../../utils/constants";
+import { deleteContact } from "../../utils/delete";
 import "./index.css";
 // import * as icons from "react-icons/fa";
 import {
@@ -14,27 +15,47 @@ import {
 
 const icons = { EMAIL, PHONE, LOCATION, LINKEDIN, GIT };
 
-function Item(data) {
-  const Icon = icons[data.contactsType];
+function Item(props) {
+  const Icon = icons[props.data.contactsType];
+
+  const contactDelete = event => {
+    event.preventDefault();
+    const { value } = event.target;
+    deleteContact(value, API_ENDPOINTS.deleteContact);
+    props.removeContact(props.data.id);
+  };
+
   return (
-    <a className="Contacts--item" href={data.link} key={data.id}>
+    <a className="Contacts--item" href={props.data.link} key={props.data.id}>
       <Icon size={32} className="Contacts--item-icon" />
-      <span className="Contacts--item-text">{data.value}</span>
+      <span className="Contacts--item-text">{props.data.value}</span>
+      <button value={props.data.id} onClick={contactDelete}>
+        Delete
+      </button>
     </a>
   );
 }
 
 function Contacts() {
   const { loading, data, setData } = useFetch(API_ENDPOINTS.personContacts);
+  const removeContact = contactId => {
+    setData(data.filter(contact => contactId !== contact.id));
+  };
   const addContact = contact => {
     setData([...data, contact]);
   };
 
   return (
-    <section className="Contacts">
+    <section className="Contacts" key={data ? data.id : []}>
       <h3>CONTACTS</h3>
       <hr className="Contacts--separator" />
-      {loading ? <div>Loading...</div> : data.map(Item)}
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        data.map(contact => (
+          <Item removeContact={removeContact} data={contact} />
+        ))
+      )}
       <AddContactForm addContact={addContact} />
     </section>
   );
@@ -50,7 +71,7 @@ function AddContactForm(props) {
     setContact({ ...contact, [name]: value });
   };
 
-  const { loading, data } = useFetch(API_ENDPOINTS.contactsTypes);
+  const { data } = useFetch(API_ENDPOINTS.contactsTypes);
 
   const createContact = async event => {
     event.preventDefault();

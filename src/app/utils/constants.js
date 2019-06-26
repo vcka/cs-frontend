@@ -4,6 +4,7 @@ export const API_ENDPOINTS = {
   personSkills: "/api/person/skills",
   personContacts: "/api/contacts/show",
   contactsTypes: "/api/contacts/type",
-  addContact: "/api/contacts/add"
+  addContact: "/api/contacts/add",
+  deleteContact: "/api/contacts/delete/"
   // ir t.t.
 };
